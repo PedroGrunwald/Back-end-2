@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import AppDataSource from '../../data-source';
-import { AppError } from '../../errors/appError';
-import { User } from '../../entities/user.entity';
+import AppDataSource from '../data-source';
+import { AppError } from '../errors/appError';
+import { User } from '../entities/user.entity';
 
 
 const validationEmailUsed = async (req: Request, res: Response, next: NextFunction) => {

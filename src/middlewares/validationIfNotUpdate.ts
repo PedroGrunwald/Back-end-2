@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express"
-import { AppError } from "../../errors/appError"
+import { AppError } from "../errors/appError"
 
 
-const cantUpdateDataMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+const validationIfNotUpdate = async (req: Request, res: Response, next: NextFunction) => {
 
     const user = req.body
 
@@ -14,4 +14,4 @@ const cantUpdateDataMiddleware = async (req: Request, res: Response, next: NextF
     return next()
 }
 
-export default cantUpdateDataMiddleware
+export default validationIfNotUpdate

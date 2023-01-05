@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 
-const validationToken = async (
+const validateTokenmiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -26,5 +26,4 @@ const validationToken = async (
   return next();
 };
 
-export default validationToken;
-
+export default validateTokenmiddleware;
