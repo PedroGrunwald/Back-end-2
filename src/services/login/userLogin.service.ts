@@ -14,6 +14,10 @@ const userLoginService = async ( { email, password }: IUserLogin ): Promise<stri
     const user = await repository.findOneBy({
         email: email
     })
+
+    if(user.isActive == false){
+        throw new AppError('User is not active', 400)
+    }
     
     if(!user){
         throw new AppError('User or password invalid', 403)

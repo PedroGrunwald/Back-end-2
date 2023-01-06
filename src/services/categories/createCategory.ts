@@ -11,7 +11,7 @@ const createCategoryService = async (data: ICategoryRequest) => {
   });
 
   if (categoryExisting) {
-    throw new AppError("categoria ja existe", 409);
+    throw new AppError("category already exists", 409);
   }
 
   const categoryData = categoryRepository.create(data);

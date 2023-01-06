@@ -11,8 +11,10 @@ const createUserService = async (
       email: userData.email,
     });
     if (validationEmail) {
-      throw new AppError("Email already exist", 400);
+      throw new AppError("Email already exist", 409);
     }
+
+
     const user = userRepository.create(userData);
     await userRepository.save(user);
   

@@ -21,13 +21,13 @@ const createScheduleService = async (
   });
 
   if (!userExist) {
-    throw new AppError("usuario não existe", 401);
+    throw new AppError("user does not exist", 401);
   }
   const propertiExist = await propertiesRepository.findOneBy({
     id: propertyId,
   });
   if (!propertiExist) {
-    throw new AppError("properiedade não existe", 404);
+    throw new AppError("property does not exist", 404);
   }
   const schAlreadyExist = await schedelRepository.findOneBy({
     hour,
@@ -50,7 +50,7 @@ const createScheduleService = async (
   const diaAgendamento = new Date(date).getDay();
 
   if (diaAgendamento == 6 || diaAgendamento == 0) {
-    throw new AppError("data invalida", 400);
+    throw new AppError("invalid date", 400);
   }
   const schedel = schedelRepository.create({
     date,
@@ -61,7 +61,7 @@ const createScheduleService = async (
   await schedelRepository.save(schedel);
 
 
-  return [201, { message: "agendamento marcado" }];
+  return [201, { message: "scheduled appointment" }];
 
 };
 

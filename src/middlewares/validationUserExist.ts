@@ -13,7 +13,7 @@ const validationUserExist = async (req: Request, res: Response, next: NextFuncti
     })
     
     if(!user) {        
-        throw new AppError('User not found', 400)
+        throw new AppError('User not found', 404)
     }
 
    return next()

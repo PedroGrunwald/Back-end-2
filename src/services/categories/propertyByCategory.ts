@@ -12,7 +12,7 @@ const listPropByCategoryService = async (CateId: string): Promise<any> => {
   });
 
   if (!categoriExist) {
-    throw new AppError("Categoria não existe", 404);
+    throw new AppError("category does not exist", 404);
   }
 
  const properyCategory = await categoryRepository.findOne({

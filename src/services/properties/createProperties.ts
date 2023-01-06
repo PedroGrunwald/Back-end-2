@@ -16,7 +16,7 @@ const createPropertieService = async ({address, categoryId, size, value}: IPrope
     id: categoryId
   });
   if (!categoriaExist) {
-    throw new AppError("categoria não existe", 404);
+    throw new AppError("category does not exist", 404);
   }
   if (address.state.length > 2) {
     throw new AppError("Invalid value for State", 400);
@@ -31,7 +31,7 @@ const createPropertieService = async ({address, categoryId, size, value}: IPrope
 
 
 if(adressExist){
-  throw new AppError("endereço existente", 409);
+  throw new AppError("address does not exist", 409);
 }
 
   const createAdress = addressRepository.create(address)
